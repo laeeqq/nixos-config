@@ -63,6 +63,9 @@
     #media-session.enable = true;
   };
 
+  services.orca.enable = false;
+
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
