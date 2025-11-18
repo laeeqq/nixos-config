@@ -16,5 +16,6 @@
     inputs.zen-browser.packages."${system}".default
     eclipses.eclipse-sdk
     jetbrains.idea-community-bin
+    vscode
   ];
 }

@@ -7,6 +7,7 @@
 {
   imports = [
     ./apps.nix
+    ./git.nix
   ];
 
   home.username ="laeeq";
