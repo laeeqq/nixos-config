@@ -12,6 +12,14 @@
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -23,6 +31,8 @@
         };
         modules = [
           ./hosts/laeeqlaptop/configuration.nix
+          ./modules/home-manager/default.nix
+          inputs.home-manager.nixosModules.default
         ];
       };
     };
