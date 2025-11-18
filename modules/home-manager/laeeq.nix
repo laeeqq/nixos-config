@@ -9,6 +9,7 @@
     ./apps.nix
     ./git.nix
     ./ui.nix
+    ./.config/links.nix
   ];
 
   home.username ="laeeq";
