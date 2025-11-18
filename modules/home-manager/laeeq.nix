@@ -8,6 +8,7 @@
   imports = [
     ./apps.nix
     ./git.nix
+    ./ui.nix
   ];
 
   home.username ="laeeq";

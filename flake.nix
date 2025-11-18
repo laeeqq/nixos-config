@@ -30,6 +30,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
 
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -42,6 +47,7 @@
         modules = [
           ./hosts/laeeqlaptop/configuration.nix
           ./modules/home-manager/default.nix
+          
           inputs.home-manager.nixosModules.default
         ];
       };
