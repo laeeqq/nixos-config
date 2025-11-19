@@ -18,5 +18,6 @@
     jetbrains.idea-community-bin
     vscode
     jdk
+    ghostty
   ];
 }

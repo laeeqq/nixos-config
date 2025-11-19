@@ -18,9 +18,10 @@
     xwayland-satellite
     alacritty
     rofi
+    ghostty
   ];
-#   temp disable
-#   services.displayManager.defaultSession = lib.mkForce "niri";
+
+  services.displayManager.defaultSession = lib.mkForce "niri";
 
 
 
