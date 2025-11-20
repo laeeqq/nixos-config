@@ -19,5 +19,6 @@
     vscode
     jdk
     ghostty
+    libreoffice
   ];
 }
