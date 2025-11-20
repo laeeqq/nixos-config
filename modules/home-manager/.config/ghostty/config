@@ -1,0 +1,14 @@
+# Window title
+title=Laeeq's Terminal
+
+# Font
+font=Monospace
+font-size=12
+
+# Colors
+foreground=#0000FF
+background= transparent
+
+# Cursor
+cursor-style=block
+cursor-color=#FFFFFF
