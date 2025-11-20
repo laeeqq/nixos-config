@@ -75,6 +75,7 @@
     isNormalUser = true;
     description = "Laeeq";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -90,6 +91,9 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # install zsh
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

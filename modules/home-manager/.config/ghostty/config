@@ -11,4 +11,4 @@ background = transparent
 
 # Cursor
 cursor-style= underline
-cursor-color=#FFFFFF
+cursor-color= #FF0000
