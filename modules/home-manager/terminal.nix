@@ -18,7 +18,7 @@
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
      initContent = ''
-     export STARSHIP_CONFIG=$HOME/.config/ghostty/starship.toml
+     export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
       eval "$(starship init zsh)"
       '';
   };
