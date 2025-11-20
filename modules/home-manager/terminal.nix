@@ -1,24 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  # Use Zsh as the default shell
+  home.shell = pkgs.zsh;
+
+  # Enable Zsh program
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      plugins = [
-        "git"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
-      ];
-    };
-  };
-
-  home.shell = pkgs.zsh;
-
-  home.sessionVariables = {
-    EDITOR = "nano";
-    PAGER  = "less";
   };
 }

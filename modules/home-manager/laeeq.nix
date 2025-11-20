@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -10,15 +6,14 @@
     ./git.nix
     ./ui.nix
     ./.config/links.nix
-    (import ./terminal.nix { inherit pkgs; }) # <-- pass pkgs here
+    ./terminal.nix 
   ];
 
-  home.username ="laeeq";
-  home.homeDirectory ="/home/laeeq";
+  home.username = "laeeq";
+  home.homeDirectory = "/home/laeeq";
 
-  home.stateVersion ="25.05"; 
+  home.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
-  
 
-
+  programs.home-manager.enable = true;
 }
