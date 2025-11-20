@@ -2,13 +2,13 @@
 title=Laeeq's Terminal
 
 # Font
-font=Monospace
-font-size=12
+font = Monospace
+font-size=13
 
 # Colors
-foreground=#0000FF
-background= transparent
+foreground= #FFFFFF
+background = transparent
 
 # Cursor
-cursor-style=block
+cursor-style= underline
 cursor-color=#FFFFFF

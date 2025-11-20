@@ -20,5 +20,6 @@
     jdk
     ghostty
     libreoffice
+    zsh
   ];
 }
