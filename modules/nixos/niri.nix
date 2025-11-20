@@ -19,6 +19,7 @@
     alacritty
     rofi
     ghostty
+    zsh
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";

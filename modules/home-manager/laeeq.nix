@@ -9,6 +9,8 @@
     ./terminal.nix 
   ];
 
+  
+
   home.username = "laeeq";
   home.homeDirectory = "/home/laeeq";
 

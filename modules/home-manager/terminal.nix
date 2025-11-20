@@ -1,6 +1,7 @@
-{ pkgs, system, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
+  # Configure Zsh features
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -18,4 +19,12 @@
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
   };
+
+  # Set Zsh as the default shell for the user
+  home.shell = pkgs.zsh;
+
+  # Ensure Zsh is available as a valid login shell
+  environment.systemPackages = with pkgs; [
+    zsh
+  ];
 }
