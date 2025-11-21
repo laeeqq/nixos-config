@@ -23,6 +23,7 @@
       eval "$(starship init zsh)"
     '';
   };
+  
 
   home.packages = with pkgs; [
     starship
