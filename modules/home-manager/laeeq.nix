@@ -6,6 +6,7 @@
     ./git.nix
     ./ui.nix
     ./.config/links.nix
+    ./terminal.nix
 
   ];
 
