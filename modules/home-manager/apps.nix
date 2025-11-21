@@ -21,5 +21,6 @@
     ghostty
     libreoffice
     zsh
+    tmux
   ];
 }

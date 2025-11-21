@@ -95,6 +95,13 @@
   # install zsh
   programs.zsh.enable = true;
 
+  # Changed rebuild to be in variable
+  environment.shellAliases = {
+  rebuild = "sudo nixos-rebuild switch --flake ~/nixos#laeeqlaptop";
+  ls = "ls --color=auto";
+};
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
