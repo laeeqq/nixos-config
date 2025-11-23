@@ -20,6 +20,8 @@
     rofi
     ghostty
     zsh
+    nodejs
+    typescript
   ];
 
   

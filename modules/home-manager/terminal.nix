@@ -20,7 +20,7 @@
 
     initContent = ''
       export STARSHIP_CONFIG=$HOME/.config/ghostty/starship.toml
-      eval "$(${pkgs.starshisp}/bin/starship init zsh)"
+      eval "$(${pkgs.starship}/bin/starship init zsh)"
     '';
   };
 
