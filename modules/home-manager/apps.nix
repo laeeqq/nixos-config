@@ -22,5 +22,7 @@
     libreoffice
     zsh
     tmux
+    xev 
+    usbutils
   ];
 }
