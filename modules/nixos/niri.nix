@@ -22,6 +22,8 @@
     zsh
     nodejs
     typescript
+    pavucontrol
+    
   ];
 
   

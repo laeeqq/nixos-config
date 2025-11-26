@@ -18,11 +18,12 @@
     jetbrains.idea-community-bin
     vscode
     jdk
-    ghostty
     libreoffice
     zsh
     tmux
     xev 
     usbutils
+    unzip
+    
   ];
 }
