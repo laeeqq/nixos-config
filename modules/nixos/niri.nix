@@ -23,7 +23,8 @@
     nodejs
     typescript
     pavucontrol
-    
+    openjdk
+    nh
   ];
 
   
