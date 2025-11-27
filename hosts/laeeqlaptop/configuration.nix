@@ -1,16 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/nixos/niri.nix
-      ../../modules/nixos/ssh.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/nixos/niri.nix
+    ../../modules/nixos/ssh.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -66,7 +67,6 @@
 
   services.orca.enable = false;
 
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -74,10 +74,10 @@
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -97,10 +97,9 @@
 
   # Changed rebuild to be in variable
   environment.shellAliases = {
-  rebuild = "sudo nixos-rebuild switch --flake ~/nixos#laeeqlaptop";
-  ls = "ls --color=auto";
-};
-
+    rebuild = "sudo nixos-rebuild switch --flake ~/nixos#laeeqlaptop";
+    ls = "ls --color=auto";
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -108,8 +107,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -138,5 +137,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }

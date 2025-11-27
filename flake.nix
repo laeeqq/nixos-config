@@ -28,7 +28,6 @@
     vicinae = {
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
-
     };
 
     noctalia = {
@@ -37,7 +36,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       laeeqlaptop = nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -47,7 +50,7 @@
         modules = [
           ./hosts/laeeqlaptop/configuration.nix
           ./modules/home-manager/default.nix
-          
+
           inputs.home-manager.nixosModules.default
         ];
       };

@@ -1,11 +1,9 @@
 {
-    inputs,
-    system,
-    ...
-}:
-
-{
-    imports = [
+  inputs,
+  system,
+  ...
+}: {
+  imports = [
     inputs.vicinae.homeManagerModules.default
   ];
 
@@ -13,6 +11,6 @@
   services.vicinae.autoStart = true;
 
   home.packages = [
-   inputs.noctalia.packages.${system}.default
+    inputs.noctalia.packages.${system}.default
   ];
 }

@@ -5,7 +5,6 @@
   inputs,
   ...
 }:
-
 # outputs
 {
   home.packages = with pkgs; [
@@ -16,14 +15,14 @@
     inputs.zen-browser.packages."${system}".default
     eclipses.eclipse-sdk
     jetbrains.idea-community-bin
-    vscode
+    vscode.fhs
     jdk
     libreoffice
     zsh
     tmux
-    xev 
+    xev
     usbutils
     unzip
-    
+    alejandra
   ];
 }

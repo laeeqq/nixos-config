@@ -3,10 +3,7 @@
   lib,
   inputs,
   ...
-}:
-{
-  
-
+}: {
   # Enable Niri
   programs.niri = {
     enable = true;
@@ -27,10 +24,5 @@
     nh
   ];
 
-  
-
   services.displayManager.defaultSession = lib.mkForce "niri";
-
-
-
 }

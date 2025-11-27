@@ -3,8 +3,7 @@
   system,
   pkgs,
   ...
-}:
-{
+}: {
   home-manager = {
     extraSpecialArgs = {
       inherit inputs;
