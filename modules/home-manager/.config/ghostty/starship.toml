@@ -1,40 +1,35 @@
-# ~/.config/ghostty/starship.toml
 "$schema" = 'https://starship.rs/config-schema.json'
+
+# ─ Top table above prompt
+[custom.top_table]
+command = """
+printf "┌─────────────┬───────────────┬───────────────┐\n"
+printf "│ Dir         │ Git Branch    │ Term Info     │\n"
+printf "├─────────────┼───────────────┼───────────────┤\n"
+printf "│ %-11s │ %-13s │ %-13s │\n" "$(basename "$PWD")" "$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'N/A')" "Ghostty"
+printf "└─────────────┴───────────────┴───────────────┘\n"
+"""
+style = "bold fg:#FF6F00 bg:#1C1C1C"
 
 # ─ Prompt layout
 format = """
 $username\
-[](fg:#1E1E2E bg:#2A2A36) $directory\
-[](fg:#2A2A36 bg:#458588)$git_branch$git_status\
-[](fg:#458588 bg:#CC241D)$python$c$cpp$rust$golang$java$nodejs\
-[](fg:#CC241D bg:#3C3836)$time\
+[](fg:#1C1C1C bg:#2C2C2C)$directory\
+[](fg:#2C2C2C bg:#FF6F00)$git_branch$git_status\
+[](fg:#FF6F00 bg:#1C1C1C)$python$c$cpp$rust$golang$java$nodejs\
+[](fg:#1C1C1C bg:#2C2C2C)$time\
 $line_break$character
 """
-
-# ─ Color palette
-palette = 'custom_palette'
-
-[palettes.custom_palette]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#1E1E2E'     # charcoal background
-color_bg3 = '#2A2A36'     # dark charcoal for panels
-color_blue = '#458588'    # main blue
-color_red = '#CC241D'     # strong red
-color_yellow = '#D79921'
-color_green = '#98971A'
-color_aqua = '#689D6A'
-color_purple = '#b16286'
-color_orange = '#D65D0E'
 
 # ─ Username
 [username]
 show_always = true
-style_user = "bold fg:#458588 bg:#1E1E2E"
+style_user = "bold fg:#FFA000 bg:#1C1C1C"
 format = " [ $user ]($style) "
 
 # ─ Directory
 [directory]
-style = "bold fg:#fbf1c7 bg:#2A2A36"
+style = "bold fg:#E0E0E0 bg:#2C2C2C"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -42,29 +37,27 @@ truncation_symbol = "…/"
 # ─ Git branch
 [git_branch]
 symbol = ""
-style = "fg:#fbf1c7 bg:#458588"
+style = "bold fg:#E0E0E0 bg:#FF6F00"
 format = "[$symbol $branch]($style)"
 
 [git_status]
-style = "fg:#fbf1c7 bg:#458588"
+style = "bold fg:#E0E0E0 bg:#FF6F00"
 format = "[$all_status$ahead_behind]($style)"
 
-# ─ Right-hand panel: terminal info & files
+# ─ Right-hand panel: first 5 files
 [custom.ghostty_info]
 command = """
-echo -n "Term: Ghostty | Dir: $(basename "$PWD") | Files: "
+echo -n "Files: "
 ls -1A | head -n 5 | tr '\n' ' '
 """
-when = "true"
-style = "bold fg:#D79921 bg:#1E1E2E"
-alignment = "right"
+style = "bold fg:#FFA000 bg:#1C1C1C"
 
 # ─ Time
 [time]
 disabled = false
 time_format = "%R"
-style = "fg:#fbf1c7 bg:#3C3836"
-format = " $time "
+style = "fg:#E0E0E0 bg:#2C2C2C"
+format = "🕒 $time "
 
 # ─ Prompt character
 [character]

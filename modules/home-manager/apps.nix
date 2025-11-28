@@ -25,5 +25,6 @@
     unzip
     alejandra
     flatpak
+    flameshot
   ];
 }

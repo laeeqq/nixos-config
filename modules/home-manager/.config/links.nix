@@ -1,3 +1,5 @@
+# links between the .config folder and your local .config
+
 {...}: {
   home.file = {
     ".config/niri" = {
