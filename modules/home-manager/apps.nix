@@ -24,5 +24,6 @@
     usbutils
     unzip
     alejandra
+    flatpak
   ];
 }
