@@ -4,7 +4,7 @@
   system,
   inputs,
   ...
-}:N
+}:
 # outputs
 {
   home.packages = with pkgs; [

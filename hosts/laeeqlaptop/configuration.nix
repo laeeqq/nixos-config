@@ -61,6 +61,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -113,6 +114,8 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+
+    jdk
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
