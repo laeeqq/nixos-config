@@ -5,9 +5,9 @@ title="Laeeq's Terminal"
 font-size=13
 
 # Colors
-foreground=#FFFFFF
+foreground= #0000FF
 
-background-opacity = 0.9
+background-opacity = 0.5
 
 # Cursor
 cursor-style=underline

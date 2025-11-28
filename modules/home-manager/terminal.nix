@@ -13,7 +13,11 @@
     shellAliases = {
       ll = "ls -l";
       edit = "sudo -e";
-      update = "sudo nixos-rebuild switch";
+      # update = "sudo nixos-rebuild switch";
+
+      rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
+      ls = "ls --color=auto";
+
     };
 
     history.size = 10000;

@@ -61,7 +61,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -102,8 +101,7 @@
 
   # Changed rebuild to be in variable
   environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake ~/nixos#laeeqlaptop";
-    ls = "ls --color=auto";
+  
   };
 
   # Allow unfree packages
@@ -116,6 +114,11 @@
     #  wget
 
     jdk
+  ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
