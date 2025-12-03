@@ -26,8 +26,8 @@
     alejandra
     flatpak
     flameshot
-
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
+    grim 
+    slurp
+    swappy
   ];
 }

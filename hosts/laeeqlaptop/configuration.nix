@@ -104,11 +104,7 @@
   
   };
 
-  xdg.portal = {
-    enable = true;
-    # Ensure the wlroots portal is the preferred backend
-    extraPortasls = [ pkgs.xdg-desktop-portal-wlr ];
-  };
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
