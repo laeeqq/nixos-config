@@ -8,7 +8,7 @@
       recursive = true;
     };
 
-    ".config/ghostty" = {
+    ".config/ghostty/" = {
       force = true;
       source = ./ghostty;
       recursive = true;
