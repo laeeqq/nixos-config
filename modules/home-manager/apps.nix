@@ -29,5 +29,6 @@
     grim 
     slurp
     swappy
+
   ];
 }
