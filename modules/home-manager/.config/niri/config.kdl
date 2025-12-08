@@ -132,7 +132,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Terminal binds
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "ghostty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { Spawn "ghostty"; }
     Mod+Ctrl+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
 
     Mod+Space hotkey-overlay-title="Run an Application: vicinae toggle" { spawn "vicinae" "toggle"; }
