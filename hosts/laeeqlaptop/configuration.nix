@@ -70,6 +70,7 @@
   };
 
   services.orca.enable = false;
+  hardware.pulseaudio.enable = false;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -78,13 +79,15 @@
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "audio"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       #  thunderbird
     ];
   };
 
+  hardware.enableAllFirmware = true;
+hardware.firmware = [ pkgs.sof-firmware ];
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
