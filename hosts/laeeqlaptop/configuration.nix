@@ -108,6 +108,29 @@ hardware.firmware = [ pkgs.sof-firmware ];
   
   };
 
+ # Disable USB autosuspend everywhere
+
+# Force usbcore parameter extremely early
+environment.etc."modprobe.d/usb-autosuspend.conf".text = ''
+  options usbcore autosuspend=-1
+'';
+
+# Optional (still good to include)
+boot.kernelParams = [
+  "usbcore.autosuspend=-1"
+];
+
+boot.kernel.sysctl = {
+  "usbcore.autosuspend" = -1;
+};
+
+# Force device-level settings after boot
+services.udev.extraRules = ''
+  ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="on"
+  ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
+'';
+
+
 
 
   # Allow unfree packages
