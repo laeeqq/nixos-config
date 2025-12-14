@@ -1,0 +1,4 @@
+background = 1c2021
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+
+keybind = ctrl+r=reload_config
