@@ -1,4 +1,7 @@
-background = 1c2021
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+background =#FF0000
+theme = dark:Catppuccin Frappe
 
 keybind = ctrl+r=reload_config
+
+font-size = 26
+cursor-style = block
