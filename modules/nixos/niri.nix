@@ -23,6 +23,8 @@
     openjdk
     nh
     pulseaudio
+    swaylock
+    fprintd
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";

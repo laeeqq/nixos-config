@@ -36,13 +36,24 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false; # optional
 
+  #finger print
+  services.fprintd.enable = true;
+
+  security.pam.services = {
+  swaylock.fprintAuth = true;
+  login.fprintAuth = true;
+  sudo.fprintAuth = true;
+};
+
+
+
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = false;
+  services.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
