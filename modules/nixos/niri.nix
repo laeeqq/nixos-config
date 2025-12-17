@@ -23,8 +23,10 @@
     openjdk
     nh
     pulseaudio
-    swaylock
+    swaylock-effects
     fprintd
+    grim
+    slurp
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";

@@ -1,7 +1,7 @@
-background =#FF0000
+background = aqua
 theme = dark:Catppuccin Frappe
 
 keybind = ctrl+r=reload_config
 
-font-size = 26
-cursor-style = block
+font-size = 18
+cursor-style =  underline
