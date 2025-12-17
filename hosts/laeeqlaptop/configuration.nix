@@ -47,6 +47,8 @@ services.fprintd.enable = true;
 
 
 
+
+
   # X11
   services.xserver.enable = true;
 
@@ -84,15 +86,6 @@ users.users.laeeq = {
   packages = with pkgs; [];
 };
 
-
-  # User
-  users.users.laeeq = {
-    isNormalUser = true;
-    description = "Laeeq";
-    extraGroups = ["networkmanager" "wheel" "audio" "plugdev"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [];
-  };
 
   hardware.enableAllFirmware = true;
   hardware.firmware = [ pkgs.sof-firmware ];
