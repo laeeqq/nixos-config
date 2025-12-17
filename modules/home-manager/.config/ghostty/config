@@ -1,5 +1,4 @@
-background = aqua
-theme = dark:Catppuccin Frappe
+background = #000000
 
 keybind = ctrl+r=reload_config
 

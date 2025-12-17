@@ -137,9 +137,11 @@ binds {
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     
-Super+Alt+L hotkey-overlay-title="Lock Screen" {
-  spawn "swaylock --screenshots --effect-blur 7x5 --effect-vignette 0.3:0.3 --fade-in 0.2 --clock --indicator --indicator-radius 120 --indicator-thickness 10 --ring-color 88c0d0 --key-hl-color a3be8c --line-color 00000000 --inside-color 00000055 --separator-color 00000000 --text-color eceff4"
-}
+    Super+Alt+L hotkey-overlay-title="Lock Screen" {
+    spawn "/home/laeeq/nixos/modules/home-manager/.config/sway/lock.sh"
+    }
+
+
 
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
