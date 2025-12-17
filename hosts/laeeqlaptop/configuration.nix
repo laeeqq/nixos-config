@@ -1,70 +1,68 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# your system. Help is available in configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
   ...
-}: {
+}: 
+
+
+let
+  lib = pkgs.lib;
+in
+{
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nixos/niri.nix
     ../../modules/nixos/ssh.nix
   ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "laeeqlaptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
+  networking.hostName = "laeeqlaptop";
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/Edmonton";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  # Sudo
   security.sudo.enable = true;
-  security.sudo.wheelNeedsPassword = false; # optional
+  security.sudo.wheelNeedsPassword = false;
 
-  #finger print
-  services.fprintd.enable = true;
+  # Fingerprint
+  security.pam.services.login.fprintAuth = lib.mkForce true;
+security.pam.services.sudo.fprintAuth = lib.mkForce true;
+services.fprintd.enable = true;
 
-  security.pam.services = {
-  swaylock.fprintAuth = true;
-  login.fprintAuth = true;
-  sudo.fprintAuth = true;
+
+  # Lid close lock
+  services.logind = {
+  lidSwitch = "lock";
+  lidSwitchExternalPower = "lock";
+  lidSwitchDocked = "ignore";
 };
 
 
 
-
-  # Enable the X11 windowing system.
+  # X11
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = false;
-  services.desktopManager.gnome.enable = false;
+  # GNOME (optional)
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-  # Enable CUPS to print documents.
+  # Printing
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # Sound
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -72,87 +70,67 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   services.orca.enable = false;
-  hardware.pulseaudio.enable = false;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  users.groups.plugdev = {};
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+users.users.laeeq = {
+  isNormalUser = true;
+  description = "Laeeq";
+  extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" ];
+  shell = pkgs.zsh;
+  packages = with pkgs; [];
+};
+
+
+  # User
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = ["networkmanager" "wheel" "audio"];
+    extraGroups = ["networkmanager" "wheel" "audio" "plugdev"];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
 
   hardware.enableAllFirmware = true;
-hardware.firmware = [ pkgs.sof-firmware ];
+  hardware.firmware = [ pkgs.sof-firmware ];
 
-  # Enable automatic login for the user.
+  # Automatic login
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "laeeq";
 
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  # Workaround for GNOME autologin
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Install firefox.
+  # Applications
   programs.firefox.enable = true;
-
-  # install zsh
   programs.zsh.enable = true;
 
-  # Changed rebuild to be in variable
-  environment.shellAliases = {
-  
-  };
+  # USB autosuspend
+  environment.etc."modprobe.d/usb-autosuspend.conf".text = ''
+    options usbcore autosuspend=-1
+  '';
 
- # Disable USB autosuspend everywhere
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  boot.kernel.sysctl = { "usbcore.autosuspend" = -1; };
 
-# Force usbcore parameter extremely early
-environment.etc."modprobe.d/usb-autosuspend.conf".text = ''
-  options usbcore autosuspend=-1
-'';
+  services.udev.extraRules = ''
+    # Disable USB autosuspend
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="on"
+    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
 
-# Optional (still good to include)
-boot.kernelParams = [
-  "usbcore.autosuspend=-1"
-];
-
-boot.kernel.sysctl = {
-  "usbcore.autosuspend" = -1;
-};
-
-# Force device-level settings after boot
-services.udev.extraRules = ''
-  ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="on"
-  ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
-'';
-
-
-
+    # Goodix fingerprint reader permissions
+    SUBSYSTEM=="usb", ATTR{idVendor}=="27c6", ATTR{idProduct}=="639c", MODE="0660", GROUP="plugdev"
+  '';
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Installed system packages
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-
     jdk
   ];
 
@@ -161,30 +139,6 @@ services.udev.extraRules = ''
     "flakes"
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  # System state version
+  system.stateVersion = "25.05";
 }

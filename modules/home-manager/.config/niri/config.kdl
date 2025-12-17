@@ -241,9 +241,7 @@ binds {
 
     Super+S { screenshot show-pointer=false; }
 
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock -f"; }
 
-    Super+L { spawn "swaylock -f"; }
 
 
 }
