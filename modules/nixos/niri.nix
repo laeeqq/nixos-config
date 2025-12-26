@@ -27,6 +27,8 @@
     fprintd
     grim
     slurp
+    plex-desktop
+    
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";

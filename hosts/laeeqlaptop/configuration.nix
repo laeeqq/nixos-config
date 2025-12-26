@@ -28,13 +28,7 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
-  # Lid close → lock
-  services.logind = {
-    lidSwitch = "lock";
-    lidSwitchExternalPower = "lock";
-    lidSwitchDocked = "ignore";
-  };
-
+  
   # X11 + GNOME (you are still using these)
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
