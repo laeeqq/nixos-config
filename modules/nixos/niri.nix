@@ -27,8 +27,8 @@
     fprintd
     grim
     slurp
-    plex-desktop
-    
+    plexmediaserver
+    qbittorrent-nox    
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";

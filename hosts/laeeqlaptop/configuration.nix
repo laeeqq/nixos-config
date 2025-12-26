@@ -11,8 +11,6 @@
     ../../modules/nixos/niri.nix
     ../../modules/nixos/ssh.nix
 
-    ../../modules/nixos/plex.nix
-    ../../modules/nixos/qbittorrent.nix
   ];
 
   # Bootloader
@@ -53,6 +51,25 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+#   # qBittorrent as a systemd service
+# services.qbittorrent-nox = {
+#   enable = true;
+#   user = "yourusername"; # replace with your username
+#   webUi = {
+#     enable = true;
+#     port = 8080;          # default web UI port
+#   };
+# };
+
+
+services.plex = {
+  enable = true;
+  dataDir = "/srv/media/plex";
+};
+
+
+
 
   services.orca.enable = false;
 

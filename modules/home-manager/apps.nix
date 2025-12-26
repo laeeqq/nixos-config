@@ -29,7 +29,5 @@
     grim 
     slurp
     swappy
-    plex-desktop
-
   ];
 }
