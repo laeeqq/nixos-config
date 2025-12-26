@@ -10,6 +10,9 @@
     ./hardware-configuration.nix
     ../../modules/nixos/niri.nix
     ../../modules/nixos/ssh.nix
+
+    ../../modules/nixos/plex.nix
+    ../../modules/nixos/qbittorrent.nix
   ];
 
   # Bootloader
