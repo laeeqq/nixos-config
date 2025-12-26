@@ -66,7 +66,10 @@
 services.plex = {
   enable = true;
   dataDir = "/srv/media/plex";
+  user = "plex";
+  group = "plex";
 };
+
 
 
 

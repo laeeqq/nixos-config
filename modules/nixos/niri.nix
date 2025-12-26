@@ -27,7 +27,7 @@
     fprintd
     grim
     slurp
-    plexmediaserver
+    plex
     qbittorrent-nox    
   ];
 
