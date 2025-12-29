@@ -62,17 +62,11 @@
 #   };
 # };
 
-
-services.plex = {
-  enable = true;
-  dataDir = "/srv/media/plex";
-  user = "plex";
-  group = "plex";
+services.logind = {
+  lidSwitch = "suspend";
+  lidSwitchExternalPower = "suspend";
+  lidSwitchDocked = "ignore";
 };
-
-
-
-
 
   services.orca.enable = false;
 
@@ -99,20 +93,20 @@ services.plex = {
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
-  # USB autosuspend (safe to keep)
-  environment.etc."modprobe.d/usb-autosuspend.conf".text = ''
-    options usbcore autosuspend=-1
-  '';
+  # # USB autosuspend (safe to keep)
+  # environment.etc."modprobe.d/usb-autosuspend.conf".text = ''
+  #   options usbcore autosuspend=-1
+  # '';
 
-  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
-  boot.kernel.sysctl = {
-    "usbcore.autosuspend" = -1;
-  };
+  # boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  # boot.kernel.sysctl = {
+  #   "usbcore.autosuspend" = -1;
+  # };
 
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="on"
-    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
-  '';
+  # services.udev.extraRules = ''
+  #   ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="on"
+  #   ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
+  # '';
 
   # Nix
   nixpkgs.config.allowUnfree = true;

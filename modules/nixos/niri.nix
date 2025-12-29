@@ -26,9 +26,7 @@
     swaylock-effects
     fprintd
     grim
-    slurp
-    plex
-    qbittorrent-nox    
+    slurp 
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";
