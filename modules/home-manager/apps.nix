@@ -25,9 +25,10 @@
     unzip
     alejandra
     flatpak
-    flameshot
+
     grim 
     slurp
     swappy
+
   ];
 }
