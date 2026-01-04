@@ -25,7 +25,6 @@
     unzip
     alejandra
     flatpak
-
     grim 
     slurp
     swappy
