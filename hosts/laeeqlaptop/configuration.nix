@@ -52,6 +52,13 @@
     pulse.enable = true;
   };
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mysql80;
+  };
+
+
+
 #   # qBittorrent as a systemd service
 # services.qbittorrent-nox = {
 #   enable = true;
@@ -118,5 +125,5 @@ services.logind = {
 
   system.stateVersion = "25.05";
 
-  
+
 }
