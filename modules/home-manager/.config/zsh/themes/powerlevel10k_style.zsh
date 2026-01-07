@@ -1,9 +1,11 @@
-# ~/.zsh/prompt.zsh - Final Powerlevel10k-style Zsh theme
+# ~/.zsh/prompt.zsh or ~/.config/zsh/themes/powerlevel10k_style.zsh
+# Fully functional Powerlevel10k-style Zsh theme (Starship-free)
+
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
 
 # ----------------------------
-# Git info with status symbols
+# Git info with symbols
 # ----------------------------
 git_info() {
   local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
@@ -32,7 +34,6 @@ exit_status() {
 # ----------------------------
 # Prompt setup
 # ----------------------------
-# Left prompt: exit code, user@host, path, Git branch
 PROMPT='$(exit_status)%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$reset_color%} $(git_info)
 %{$fg[magenta]%}❯%{$reset_color%} '
 
