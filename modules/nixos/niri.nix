@@ -27,6 +27,9 @@
     fprintd
     grim
     slurp 
+    jetbrains-toolbox
+    
+    
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";
