@@ -26,6 +26,7 @@
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
     initContent = ''
+      source $HOME/.config/zsh/prompt.zsh
     '';
   };
 
