@@ -26,7 +26,7 @@
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
     initContent = ''
-      source $HOME/.config/zsh/prompt.zsh
+       source /home/laeeq/nixos/modules/home-manager/.config/zsh/prompt.zsh
     '';
   };
 
