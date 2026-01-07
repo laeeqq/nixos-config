@@ -26,12 +26,10 @@
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
     initContent = ''
-      export STARSHIP_CONFIG=$HOME/.config/ghostty/starship.toml
-      eval "$(${pkgs.starship}/bin/starship init zsh)"
     '';
   };
 
   home.packages = with pkgs; [
-    starship
+  
   ];
 }
