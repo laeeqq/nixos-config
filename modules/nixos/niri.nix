@@ -28,6 +28,8 @@
     grim
     slurp 
     jetbrains-toolbox
+    evince
+
     
     
   ];
