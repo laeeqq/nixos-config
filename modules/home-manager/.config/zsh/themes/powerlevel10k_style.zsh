@@ -1,21 +1,35 @@
-# ~/.zsh/powerlevel10k_style.zsh
+# Jonathan-style professional Zsh theme
+# Clean, minimal, Git-aware, coder-friendly
+
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
 
 # ----------------------------
 # Git info
 # ----------------------------
-git_status() {
+git_info() {
   local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-  if [[ -n $branch ]]; then
-    local status
-    status=$(git status --porcelain 2>/dev/null)
-    local symbols=""
-    [[ $status == *"??"* ]] && symbols+="?"       # untracked
-    [[ $status == *"M"* ]] && symbols+="!"       # modified
-    [[ $status == *"A"* ]] && symbols+="+"       # staged
-    echo "%{$fg[cyan]%} $branch$symbols%{$reset_color%}"
+  [[ -z $branch ]] && return
+
+  local status=$(git status --porcelain 2>/dev/null)
+  local symbols=""
+  [[ $status == *"??"* ]] && symbols+="?"    # untracked
+  [[ $status == *"M"* ]] && symbols+="!"    # modified
+  [[ $status == *"A"* ]] && symbols+="+"    # staged
+
+  # Ahead/behind info
+  local upstream=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
+  local ahead behind
+  if [[ -n $upstream ]]; then
+    ahead=$(git rev-list --count HEAD..$upstream 2>/dev/null)
+    behind=$(git rev-list --count $upstream..HEAD 2>/dev/null)
   fi
+
+  local ab=""
+  [[ $ahead -gt 0 ]] && ab+="↑$ahead"
+  [[ $behind -gt 0 ]] && ab+="↓$behind"
+
+  echo "%{$fg[cyan]%} $branch$ab$symbols%{$reset_color%}"
 }
 
 # ----------------------------
@@ -27,9 +41,9 @@ exit_status() {
 }
 
 # ----------------------------
-# Prompt
+# Prompt setup
 # ----------------------------
-PROMPT='$(exit_status)%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$reset_color%} $(git_status)
+PROMPT='$(exit_status)%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$reset_color%} $(git_info)
 %{$fg[magenta]%}❯%{$reset_color%} '
 
 # Right prompt: time
@@ -43,6 +57,7 @@ setopt share_history
 setopt hist_ignore_dups
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
+
 SAVEHIST=5000
 
 autoload -Uz compinit && compinit
@@ -58,6 +73,6 @@ alias gd='git diff'
 alias gp='git push'
 
 # ----------------------------
-# PATH additions
+# Path additions
 # ----------------------------
 export PATH="$HOME/bin:$PATH"

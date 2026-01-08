@@ -1,6 +1,0 @@
-background = #646060ff
-
-keybind = ctrl+r=reload_config
-
-font-size = 13
-cursor-style =  underline
