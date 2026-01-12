@@ -29,6 +29,8 @@
     slurp 
     jetbrains-toolbox
     evince
+    python311
+    
 
     
     
