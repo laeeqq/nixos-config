@@ -42,6 +42,9 @@
   # Printing
   services.printing.enable = true;
 
+  services.openssh.enable = true;
+
+
   # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

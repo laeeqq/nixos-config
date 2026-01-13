@@ -30,6 +30,7 @@
     jetbrains-toolbox
     evince
     python311
+    nmap
     
 
     
