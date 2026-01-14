@@ -2,6 +2,7 @@
   pkgs,
   lib,
   inputs,
+  system,
   ...
 }: {
   # Enable Niri
@@ -15,7 +16,7 @@
     xwayland-satellite
     alacritty
     rofi
-    ghostty
+    inputs.ghostty.packages."${system}".default
     zsh
     nodejs
     typescript

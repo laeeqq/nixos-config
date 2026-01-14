@@ -9,7 +9,10 @@
       url = "github:nixos/nixpkgs/nixos-25.05";
     };
     ghostty = {
-      url = "github:ghostty-org/ghostty";
+      type = "github";
+      owner = "ghostty-org";
+      repo = "ghostty";
+      ref = "ec2912dbafe50cc32b786d2327dcd0213c83ecc6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
