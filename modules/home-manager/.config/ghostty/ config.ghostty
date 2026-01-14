@@ -1,17 +1,78 @@
-# Font
 font-family = "DepartureMono Nerd Font"
+font-style = normal
+font-style-bold = normal
+font-style-italic = normal
+font-style-bold-italic = normal
+font-synthetic-style = false
 font-size = 11
-
-# Theme
-theme = dark:Poimandres
-
-# Cursor
+font-thicken = false
+grapheme-width-method = unicode
+theme = light:rose-pine-dawn,dark:Poimandres
 cursor-style = bar
-mouse-hide-while-typing = true  
+mouse-hide-while-typing = true
 
-# Background
+mouse-shift-capture = false
 background-opacity = 0.9
+unfocused-split-opacity = 0.6
+scrollback-limit = 10000000
 
-# Scrollback
-scrollback-limit = 100000
+link-url = true
+fullscreen = false
+title =
+class =
+x11-instance-name =
+working-directory = "/home/laeeq"
 
+window-padding-x = 16
+window-padding-y = 8
+window-padding-balance = false
+window-padding-color = extend
+window-vsync = true
+window-inherit-working-directory = true
+window-inherit-font-size = true
+window-decoration = none
+window-theme = auto
+window-colorspace = srgb
+window-height = 0
+window-width = 0
+window-save-state = after-first
+window-step-resize = false
+window-new-tab-position = current
+
+resize-overlay = true
+resize-overlay-position = center
+resize-overlay-duration = 750ms
+
+focus-follows-mouse = true
+
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+image-storage-limit = 320000000
+copy-on-select = true
+click-repeat-interval = 0
+
+confirm-close-surface = false
+quit-after-last-window-closed = false
+initial-window = true
+shell-integration = detect
+shell-integration-features = cursor,no-sudo,title
+osc-color-report-format = 16-bit
+vt-kam-allowed = false
+desktop-notifications = true
+bold-is-bright = true
+
+term = xterm-ghostty
+
+palette = "poimandres"
+palette_overlay = "#252b37"
+palette_overlayd = "#171922"
+palette_overlaydd = "#1b1e28"
+palette_love = "#d0679d"
+palette_gold = "#add7ff"
+palette_rose = "#5de4c7"
+palette_pine = "#4ebe96"
+palette_foam = "#54c0a3"
+palette_iris = "#ffffff"

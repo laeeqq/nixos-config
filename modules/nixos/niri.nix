@@ -32,7 +32,8 @@
     python311
     nmap
     awscli
-    
+    python3Packages.boto3
+
 
     
     
