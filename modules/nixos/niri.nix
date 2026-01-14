@@ -31,6 +31,7 @@
     evince
     python311
     nmap
+    awscli
     
 
     
