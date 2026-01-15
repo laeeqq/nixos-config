@@ -81,7 +81,7 @@ $time\
 # 📁 Directory
 # =========================
 [directory]
-style = "fg:#07080c bg:#7aa2f7"
+style = "fg:#07080c bg:#7aa2f7" 
 format = "[ $path ]($style)"
 truncation_length = 4
 truncation_symbol = "…/"
