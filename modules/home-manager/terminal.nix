@@ -54,56 +54,99 @@
 
   # 👇 This CREATES the real Starship config file
   home.file.".config/ghostty/starship.toml".text = ''
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+
 format = """
-($nix_shell$container$git_metrics)$cmd_duration$hostname$localip$shlvl$shell$env_var$jobs$sudo$username$character$directory$git_branch$git_status$nodejs$python$rust$time
+[░▒▓](fg:#6e6a86)\
+[ 󰬃 ](bg:#1c1f2b fg:#e6e6e6)\
+[](bg:#4dd0e1 fg:#1c1f2b)\
+$directory\
+[](fg:#4dd0e1 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#212736 bg:#07080c)\
+$time\
+[ ](fg:#07080c)\
+\n$character
 """
 
-palette = "poimandres"
-
-[palettes.poimandres]
-overlay   = "#2a2e3e"  # lighter than previous overlay
-overlayd  = "#1f2230"  # dark base for segment background
-overlaydd = "#161820"  # deeper shadow layer
-love      = "#f07178"  # lighter red
-gold      = "#ffcb6b"  # bright yellow
-rose      = "#ff80bf"  # pink accent
-pine      = "#7dcfff"  # light cyan
-foam      = "#69e0a3"  # mint green
-iris      = "#ffffff"  # pure white for contrast
-
+# =========================
+# 📁 Directory
+# =========================
 [directory]
-format = "[](fg:overlayd)[ $path ]($style)[](fg:overlayd)"
-style = "bg:overlayd fg:pine"
-truncation_length = 5
-truncation_symbol = ""
+style = "fg:#07080c bg:#7aa2f7"
+format = "[ $path ]($style)"
+truncation_length = 4
+truncation_symbol = "…/"
 truncate_to_repo = false
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+# =========================
+# 🌱 Git
+# =========================
 [git_branch]
-symbol = " "
-style = "bg:overlaydd fg:foam"
-format = "[](fg:overlaydd)[ $symbol$branch ]($style)[](fg:overlaydd)"
+symbol = " "
+style = "bg:#394260 fg:#4dd0e1"
+format = "[$symbol$branch]($style)"
 
 [git_status]
-style = "bg:overlaydd fg:love"
-format = "[](fg:overlaydd)[$all_status$ahead_behind]($style)[](fg:overlaydd)"
+style = "bg:#394260 fg:#ff6f91"
+format = "[($all_status$ahead_behind)]($style)"
 
-[time]
-disabled = false
-time_format = "%I:%M %p"
-style = "bg:overlay fg:rose"
-format = "[](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
-
+# =========================
+# 🟢 Languages
+# =========================
 [nodejs]
-symbol = " "
-style = "bg:overlay fg:pine"
-
-[python]
-symbol = " "
-style = "bg:overlay fg:pine"
+symbol = ""
+style = "bg:#212736 fg:#4dd0e1"
+format = "[ $symbol ($version) ]($style)"
 
 [rust]
-symbol = " "
-style = "bg:overlay fg:pine"
+symbol = ""
+style = "bg:#212736 fg:#4dd0e1"
+format = "[ $symbol ($version) ]($style)"
+
+[golang]
+symbol = ""
+style = "bg:#212736 fg:#4dd0e1"
+format = "[ $symbol ($version) ]($style)"
+
+[php]
+symbol = ""
+style = "bg:#212736 fg:#4dd0e1"
+format = "[ $symbol ($version) ]($style)"
+
+# =========================
+# 🕒 Time
+# =========================
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bg:#07080c fg:#ffd97d"
+format = "[  $time ]($style)"
+
+# =========================
+# ➜ Prompt Arrow
+# =========================
+[character]
+success_symbol = "[🏎️](fg:#7aa2f7) "
+error_symbol   = "[🏎️](fg:#ff6f91) "
+
+
+
+
 '';
 
 
