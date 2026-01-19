@@ -88,6 +88,8 @@ services.logind = {
     shell = pkgs.zsh;
   };
 
+
+
   # Firmware
   hardware.enableAllFirmware = true;
   hardware.firmware = [ pkgs.sof-firmware ];

@@ -13,7 +13,7 @@
     shellAliases = {
       ll = "ls -l";
       edit = "sudo -e";
-      rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
+      rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos#laeeqlaptop";
       ls = "ls --color=auto";
     };
 
