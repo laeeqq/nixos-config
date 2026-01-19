@@ -9,8 +9,9 @@
 
   services.vicinae.enable = true;
 
-
   home.packages = [
     inputs.noctalia.packages.${system}.default
   ];
+
+  systemd.user.startServices = "sd-switch";
 }
