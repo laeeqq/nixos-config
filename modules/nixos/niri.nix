@@ -40,5 +40,10 @@
     
   ];
 
+
+  
+
+
+
   services.displayManager.defaultSession = lib.mkForce "niri";
 }

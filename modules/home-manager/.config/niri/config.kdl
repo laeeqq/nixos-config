@@ -122,6 +122,12 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match is-focused=true
+    opacity 1.0
+    draw-border-with-background false
+}
+
 
 
 // Binds
@@ -136,13 +142,9 @@ binds {
 
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    
     Super+Alt+L hotkey-overlay-title="Lock Screen" {
-    spawn "/home/laeeq/nixos/modules/home-manager/.config/sway/lock.sh"
+        spawn "/home/laeeq/nixos/modules/home-manager/.config/sway/lock.sh"
     }
-
-
-
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -221,12 +223,12 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp { move-column-left; }
 
     // Finer width adjustments (resize tabs/columns)
-    Mod+Minus { set-column-width "-10%"; } // narrower
-    Mod+Equal { set-column-width "+10%"; } // wider
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
 
     // Finer height adjustments (resize windows)
-    Mod+Shift+Minus { set-window-height "-10%"; } // shorter
-    Mod+Shift+Equal { set-window-height "+10%"; } // taller
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
 
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
@@ -248,8 +250,4 @@ binds {
     Ctrl+Alt+Delete { quit; }
 
     Super+S { screenshot show-pointer=false; }
-
-
-
-
 }
