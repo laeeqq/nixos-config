@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     ./apps.nix
     ./git.nix
@@ -18,4 +14,10 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
+
+  # Avoid clobber errors
+  home-manager.backupFileExtension = ".oldbak";
+
+  # Force overwrite for .zshrc if it exists
+  xdg.configFile.".zshrc".force = true;
 }
