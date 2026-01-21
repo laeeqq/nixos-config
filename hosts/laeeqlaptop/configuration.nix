@@ -60,8 +60,6 @@
     package = pkgs.mysql80;
   };
 
-  programs.starship.enable = true;
-
 #   # qBittorrent as a systemd service
 # services.qbittorrent-nox = {
 #   enable = true;
