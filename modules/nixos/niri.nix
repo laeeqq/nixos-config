@@ -34,6 +34,7 @@
     nmap
     awscli
     python3Packages.boto3
+    vim
 
 
     
