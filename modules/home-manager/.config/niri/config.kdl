@@ -124,7 +124,7 @@ window-rule {
 
 window-rule {
     match is-focused=true
-    opacity 0.80
+    opacity 0.6
     draw-border-with-background false
 }
 

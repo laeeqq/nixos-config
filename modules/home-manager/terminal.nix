@@ -57,7 +57,7 @@
   # Session variables
   # ------------------------
   home.sessionVariables = {
-    GHOSTTY_CONFIG = "$HOME/.config/ghostty/config.toml";
+    GHOSTTY_CONFIG = "$HOME/.config/ghostty/starship.toml";
   };
 
   # ------------------------
