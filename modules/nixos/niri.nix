@@ -16,13 +16,12 @@
     xwayland-satellite
     alacritty
     rofi
-    inputs.ghostty.packages."${system}".default
+    ghostty
     zsh
     nodejs
     typescript
     pavucontrol
     openjdk
-    nh
     pulseaudio
     swaylock-effects
     fprintd
