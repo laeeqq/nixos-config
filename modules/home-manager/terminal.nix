@@ -19,7 +19,7 @@
       edit = "sudo -e";
       rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
       ls = "ls --color=auto";
-      sleep = "systemctl suspend";
+      sleep = "systemctl suspend" ;
     };
 
     history = {
