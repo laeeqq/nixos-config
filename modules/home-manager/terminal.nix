@@ -19,7 +19,7 @@
       edit = "sudo -e";
       rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
       ls = "ls --color=auto";
-      sleep = "systemctl suspend" ;
+      sleep = "systemctl suspend";
     };
 
     history = {
@@ -29,14 +29,17 @@
       ignorePatterns = [ "rm *" "pkill *" "cp *" ];
     };
 
+    # Ensure Starship uses the correct config
     initContent = ''
       export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
     '';
   };
 
+  # Enable Starship prompt in Zsh
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
 
+  # Other shell utilities
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
 
@@ -50,15 +53,7 @@
   # Packages
   # ------------------------
   home.packages = with pkgs; [
-    ghostty
   ];
-
-  # ------------------------
-  # Session variables
-  # ------------------------
-  home.sessionVariables = {
-    GHOSTTY_CONFIG = "$HOME/.config/ghostty/starship.toml";
-  };
 
   # ------------------------
   # Ghostty

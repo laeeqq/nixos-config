@@ -117,14 +117,20 @@ animations {
 }
 
 // Window rules
+// window-rule {
+//     match app-id=r#"^org\.wezfurlong\.wezterm$"#
+//     default-column-width {}
+// }
+
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match is-focused=false
+    opacity 0.82
+    draw-border-with-background false
 }
 
 window-rule {
     match is-focused=true
-    opacity 0.6
+    opacity 0.82
     draw-border-with-background false
 }
 
