@@ -35,6 +35,7 @@
     python3Packages.boto3
     vim
     openvpn
+    wireshark
     
 
 
