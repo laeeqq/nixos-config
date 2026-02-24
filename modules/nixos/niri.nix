@@ -16,9 +16,9 @@
     xwayland-satellite
     alacritty
     rofi
-    ghostty
     zsh
     nodejs
+    ghostty 
     typescript
     pavucontrol
     openjdk

@@ -1,12 +1,8 @@
-{
-  pkgs,
-  system,
-  lib,
-  ...
-}: {
+{ pkgs, system, lib, ... }:
 
+{
   # ------------------------
-  # Zsh + Starship + utilities
+  # Zsh
   # ------------------------
   programs.zsh = {
     enable = true;
@@ -29,34 +25,55 @@
       ignorePatterns = [ "rm *" "pkill *" "cp *" ];
     };
 
-    # Ensure Starship uses the correct config
-    initContent = ''
+    initExtra = ''
       export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
+
+      # completion system (needed for carapace)
+      autoload -Uz compinit
+      compinit
     '';
   };
 
-  # Enable Starship prompt in Zsh
-  programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
+  # ------------------------
+  # Starship
+  # ------------------------
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
-  # Other shell utilities
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
+  # ------------------------
+  # Zoxide
+  # ------------------------
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
-  programs.atuin.enable = true;
-  programs.atuin.enableZshIntegration = true;
+  # ------------------------
+  # Atuin
+  # ------------------------
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
-  programs.carapace.enable = true;
-  programs.carapace.enableZshIntegration = true;
+  # ------------------------
+  # Carapace
+  # ------------------------
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # ------------------------
+  # Ghostty
+  # ------------------------
+  programs.ghostty.enable = true;
 
   # ------------------------
   # Packages
   # ------------------------
   home.packages = with pkgs; [
   ];
-
-  # ------------------------
-  # Ghostty
-  # ------------------------
-  programs.ghostty.enable = true;
 }
