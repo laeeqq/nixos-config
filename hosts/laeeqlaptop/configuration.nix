@@ -43,6 +43,9 @@
   services.printing.enable = true;
 
   services.openssh.enable = true;
+  
+# wireshark permissions
+  programs.wireshark.enable = true;
 
 
   # Audio
