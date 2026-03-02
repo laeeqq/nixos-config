@@ -85,7 +85,7 @@ services.logind = {
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "wireshark"];
     shell = pkgs.zsh;
   };
 
