@@ -37,11 +37,8 @@
   openvpn
   wireshark
 
-  # Add these Python packages
-  python3Packages.numpy
-  python3Packages.pandas
-  python3Packages.spacy
-  python3Packages.torch
+
+
 ];
 
 
