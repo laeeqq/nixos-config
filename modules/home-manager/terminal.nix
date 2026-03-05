@@ -1,8 +1,12 @@
-{ pkgs, system, lib, ... }:
-
 {
+  pkgs,
+  system,
+  lib,
+  ...
+}: {
+
   # ------------------------
-  # Zsh
+  # Zsh + Starship + utilities
   # ------------------------
   programs.zsh = {
     enable = true;
@@ -25,64 +29,39 @@
       ignorePatterns = [ "rm *" "pkill *" "cp *" ];
     };
 
-    initExtra = ''
-      # ------------------------
-      # Source Home Manager environment
-      # ------------------------
-      if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
-        source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-      fi
-
-    
-      # ------------------------
-      # Zsh completion system (needed for Carapace, Atuin, Zoxide)
-      # ------------------------
-      autoload -Uz compinit
-      compinit
+    initContent = ''
+      export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
     '';
   };
 
-  # ------------------------
-  # Starship
-  # ------------------------
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  programs.starship.enable = true;
+  programs.starship.enableZshIntegration = true;
+
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
+
+  programs.atuin.enable = true;
+  programs.atuin.enableZshIntegration = true;
+
+  programs.carapace.enable = true;
+  programs.carapace.enableZshIntegration = true;
 
   # ------------------------
-  # Zoxide
+  # Packages
   # ------------------------
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  home.packages = with pkgs; [
+    ghostty
+  ];
 
   # ------------------------
-  # Atuin
+  # Session variables
   # ------------------------
-  programs.atuin = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  # ------------------------
-  # Carapace
-  # ------------------------
-  programs.carapace = {
-    enable = true;
-    enableZshIntegration = true;
+  home.sessionVariables = {
+    GHOSTTY_CONFIG = "$HOME/.config/ghostty/config.toml";
   };
 
   # ------------------------
   # Ghostty
   # ------------------------
   programs.ghostty.enable = true;
-
-  # ------------------------
-  # Home packages
-  # ------------------------
-  home.packages = with pkgs; [
-    # Add packages here if needed
-  ];
 }

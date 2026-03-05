@@ -1,12 +1,14 @@
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./apps.nix
     ./git.nix
     ./ui.nix
     ./.config/links.nix
     ./terminal.nix
-    ./
-
   ];
 
   home.username = "laeeq";
@@ -16,10 +18,4 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
-
-  # Avoid clobber errors
-  home-manager.backupFileExtension = ".oldbak";
-
-  # Force overwrite for .zshrc if it exists
-  xdg.configFile.".zshrc".force = true;
 }
