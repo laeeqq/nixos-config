@@ -5,6 +5,8 @@
     ./ui.nix
     ./.config/links.nix
     ./terminal.nix
+    ./
+
   ];
 
   home.username = "laeeq";

@@ -93,6 +93,8 @@ services.logind = {
 
 
 
+
+
   # Firmware
   hardware.enableAllFirmware = true;
   hardware.firmware = [ pkgs.sof-firmware ];

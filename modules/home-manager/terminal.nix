@@ -26,9 +26,21 @@
     };
 
     initExtra = ''
+      # ------------------------
+      # Source Home Manager environment
+      # ------------------------
+      if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+        source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      fi
+
+      # ------------------------
+      # Starship config
+      # ------------------------
       export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
 
-      # completion system (needed for carapace)
+      # ------------------------
+      # Zsh completion system (needed for Carapace, Atuin, Zoxide)
+      # ------------------------
       autoload -Uz compinit
       compinit
     '';
@@ -72,8 +84,9 @@
   programs.ghostty.enable = true;
 
   # ------------------------
-  # Packages
+  # Home packages
   # ------------------------
   home.packages = with pkgs; [
+    # Add packages here if needed
   ];
 }
