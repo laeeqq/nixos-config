@@ -33,11 +33,7 @@
         source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
       fi
 
-      # ------------------------
-      # Starship config
-      # ------------------------
-      export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
-
+    
       # ------------------------
       # Zsh completion system (needed for Carapace, Atuin, Zoxide)
       # ------------------------

@@ -92,6 +92,11 @@ services.logind = {
   };
 
 
+  # Enable Docker service
+virtualisation.docker.enable = true;
+
+# Optional: add your user to the docker group
+users.users.<your-username>.extraGroups = [ "docker" ];
 
 
 
