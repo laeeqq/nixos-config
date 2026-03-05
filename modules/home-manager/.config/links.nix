@@ -13,5 +13,10 @@
       source = ./ghostty;
       recursive = true;
     };
+
+    ".config/starship.toml" = {
+        force = true;
+        source = ./starship.toml;
+    };
   };
 }

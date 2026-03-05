@@ -43,9 +43,6 @@
   services.printing.enable = true;
 
   services.openssh.enable = true;
-  
-# wireshark permissions
-  programs.wireshark.enable = true;
 
 
   # Audio
@@ -81,21 +78,16 @@ services.logind = {
 
   services.orca.enable = false;
 
-  boot.loader.systemd-boot.configurationLimit = 4;
-
   # User
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = [ "networkmanager" "wheel" "audio" "wireshark" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker"];
     shell = pkgs.zsh;
   };
 
-
   # Enable Docker service
 virtualisation.docker.enable = true;
-
-
 
   # Firmware
   hardware.enableAllFirmware = true;

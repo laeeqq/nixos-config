@@ -10,28 +10,28 @@
   # ------------------------
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    # enableCompletion = true;
+    # autosuggestion.enable = true;
+    # syntaxHighlighting.enable = true;
 
-    shellAliases = {
-      ll = "ls -l";
-      edit = "sudo -e";
-      rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
-      ls = "ls --color=auto";
-      sleep = "systemctl suspend";
-    };
+    # shellAliases = {
+    #   ll = "ls -l";
+    #   edit = "sudo -e";
+    #   rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
+    #   ls = "ls --color=auto";
+    #   sleep = "systemctl suspend";
+    # };
 
-    history = {
-      size = 10000;
-      ignoreAllDups = true;
-      path = "$HOME/.zsh_history";
-      ignorePatterns = [ "rm *" "pkill *" "cp *" ];
-    };
+    # history = {
+    #   size = 10000;
+    #   ignoreAllDups = true;
+    #   path = "$HOME/.zsh_history";
+    #   ignorePatterns = [ "rm *" "pkill *" "cp *" ];
+    # };
 
-    initContent = ''
-      export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
-    '';
+    # initContent = ''
+    #   export STARSHIP_CONFIG="$HOME/.config/ghostty/starship.toml"
+    # '';
   };
 
   programs.starship.enable = true;
@@ -39,6 +39,10 @@
 
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
+
+#   programs.zoxide.options = [
+#   "--cmd cd"
+# ];
 
   programs.atuin.enable = true;
   programs.atuin.enableZshIntegration = true;
