@@ -130,6 +130,9 @@ virtualisation.docker.enable = true;
   system.stateVersion = "25.05";
 
 
+  boot.loader.systemd-boot.configurationLimit = 4;
+
+
 
 
 
