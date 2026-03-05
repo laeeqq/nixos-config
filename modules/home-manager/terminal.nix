@@ -14,13 +14,13 @@
     # autosuggestion.enable = true;
     # syntaxHighlighting.enable = true;
 
-    # shellAliases = {
-    #   ll = "ls -l";
-    #   edit = "sudo -e";
-    #   rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
-    #   ls = "ls --color=auto";
-    #   sleep = "systemctl suspend";
-    # };
+    shellAliases = {
+      ll = "ls -l";
+      edit = "sudo -e";
+      rebuild = "${pkgs.nh}/bin/nh os switch ~/nixos";
+      ls = "ls --color=auto";
+      sleep = "systemctl suspend";
+    };
 
     # history = {
     #   size = 10000;
