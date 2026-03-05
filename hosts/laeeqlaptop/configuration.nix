@@ -87,16 +87,13 @@ services.logind = {
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = [ "networkmanager" "wheel" "audio" "wireshark"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "wireshark" "docker"];
     shell = pkgs.zsh;
   };
 
 
   # Enable Docker service
 virtualisation.docker.enable = true;
-
-# Optional: add your user to the docker group
-users.users.<your-username>.extraGroups = [ "docker" ];
 
 
 
