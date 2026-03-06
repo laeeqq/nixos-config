@@ -4,12 +4,12 @@ format = """
 [🏎](color_red) \
 $os\
 $username\
-[](bg:color_darkgray fg:color_red)\
+[](bg:color_panel fg:color_red)\
 $directory\
-[](fg:color_darkgray bg:color_blue)\
+[](fg:color_panel bg:color_blue)\
 $git_branch\
 $git_status\
-[](fg:color_blue bg:color_black)\
+[](fg:color_blue bg:color_base)\
 $c\
 $cpp\
 $rust\
@@ -20,31 +20,32 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:color_black bg:color_darkgray)\
+[](fg:color_base bg:color_panel)\
 $docker_context\
 $conda\
 $pixi\
-[](fg:color_darkgray bg:color_black)\
+[](fg:color_panel bg:color_base)\
 $time\
-[ ](fg:color_black)\
+[ ](fg:color_base)\
 $line_break$character
 """
 
-palette = 'f1_dashboard'
+palette = 'f1_blue_theme'
 
-[palettes.f1_dashboard]
-color_fg0 = '#ffffff'       # Default text
-color_black = '#121212'     # Base background
-color_darkgray = '#1e1e1e'  # Panels background
-color_red = '#ff1a1a'       # Missing/error
-color_green = '#00ff55'     # Available/installed
-color_blue = '#00aaff'      # Git/info
-color_orange = '#ff6600'    # Languages/commands
+[palettes.f1_blue_theme]
+color_fg0 = '#E0F0FF'       # Default text (soft icy white)
+color_base = '#0A1F33'      # Terminal background (deep navy)
+color_panel = '#133955'     # Panels / segment background (dark blue)
+color_red = '#FF5C5C'       # Errors / missing tools
+color_green = '#5CFF9E'     # Installed / available
+color_blue = '#4CB3FF'      # Git / info
+color_orange = '#FFA64C'    # Accents for languages / commands
+color_yellow = '#FFE57F'    # Optional highlights
 
 # OS icon
 [os]
 disabled = false
-style = "bg:color_red fg:color_fg0"
+style = "bg:color_blue fg:color_fg0"
 
 [os.symbols]
 Windows = "🖥"
@@ -57,13 +58,13 @@ Fedora = "🌀"
 # Username block
 [username]
 show_always = true
-style_user = "bg:color_red fg:color_fg0"
-style_root = "bg:color_red fg:color_fg0"
+style_user = "bg:color_blue fg:color_fg0"
+style_root = "bg:color_blue fg:color_fg0"
 format = '[ $user ]($style)'
 
 # Directory block
 [directory]
-style = "fg:color_fg0 bg:color_darkgray"
+style = "fg:color_fg0 bg:color_panel"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -84,67 +85,74 @@ disabled = false
 # Programming languages with dynamic color
 [nodejs]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [c]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [cpp]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [rust]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [golang]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [php]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [java]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [kotlin]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [haskell]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 [python]
 symbol = "⚡"
-style = "bg:color_black"
-format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ $symbol( $version )](if_exists:fg:color_green else:fg:color_red bg:color_base)]($style)'
 
 # Docker & Conda
 [docker_context]
 symbol = "🛳"
-style = "bg:color_darkgray"
-format = '[[ $symbol( $context )](if_exists:fg:color_blue else:fg:color_red bg:color_darkgray)]($style)'
+style = "bg:color_panel"
+format = '[[ $symbol( $context )](if_exists:fg:color_blue else:fg:color_red bg:color_panel)]($style)'
 
 [conda]
-style = "bg:color_darkgray"
-format = '[[ $symbol( $environment )](if_exists:fg:color_blue else:fg:color_red bg:color_darkgray)]($style)'
+style = "bg:color_panel"
+format = '[[ $symbol( $environment )](if_exists:fg:color_blue else:fg:color_red bg:color_panel)]($style)'
 
 # Time
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:color_black"
-format = '[[ ⏱ $time ](fg:color_fg0 bg:color_black)]($style)'
+style = "bg:color_base"
+format = '[[ ⏱ $time ](fg:color_fg0 bg:color_base)]($style)'
+
+# Prompt character - F1 car
+[character]
+success_symbol = '[🏎](bold fg:color_green)'
+error_symbol   = '[🏎](bold fg:color_red)'
+vicmd_symbol   = '[🏎](bold fg:color_blue)'
+vimcmd_replace_symbol = '[🏎](bold fg:color_blue)'
