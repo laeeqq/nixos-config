@@ -29,6 +29,7 @@
     slurp
     swappy
     starship
+    code-cursor
     
 
   ];
