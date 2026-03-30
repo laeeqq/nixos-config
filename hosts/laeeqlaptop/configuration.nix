@@ -2,6 +2,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 
@@ -132,7 +133,17 @@ virtualisation.docker.enable = true;
 
   boot.loader.systemd-boot.configurationLimit = 4;
 
+  # Replace your logind block with:
+services.logind.settings.Login = {
+  HandleLidSwitch = "suspend";
+  HandleLidSwitchExternalPower = "suspend";
+  HandleLidSwitchDocked = "ignore";
+};
 
+# Replace your PAM block with:
+security.pam.services.swaylock.fprintAuth = true;
+security.pam.services.login.fprintAuth = lib.mkForce true;
+security.pam.services.sudo.fprintAuth = true;
 
 
 
