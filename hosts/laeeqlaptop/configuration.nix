@@ -43,6 +43,8 @@
   # Printing
   services.printing.enable = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   services.openssh.enable = true;
 
 
