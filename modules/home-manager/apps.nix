@@ -30,7 +30,7 @@
     swappy
     starship
     code-cursor
-    
-
+    nodejs
+    php
   ];
 }

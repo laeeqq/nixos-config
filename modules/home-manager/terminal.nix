@@ -21,8 +21,7 @@
       ls = "ls --color=auto";
       sleep = "systemctl suspend";
       code = "cursor";
-    };
-
+    }
     # history = {
     #   size = 10000;
     #   ignoreAllDups = true;
