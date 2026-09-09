@@ -1,4 +1,3 @@
-
 {
   config,
   pkgs,
@@ -11,8 +10,9 @@
     ./hardware-configuration.nix
     ../../modules/nixos/niri.nix
     ../../modules/nixos/ssh.nix
-
   ];
+
+  services.tailscale.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -30,23 +30,12 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
-  
-  # X11 + GNOME (you are still using these)
-  services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us";
-  };
-
   # Printing
   services.printing.enable = true;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
   services.openssh.enable = true;
-
 
   # Audio
   services.pulseaudio.enable = false;
@@ -63,21 +52,21 @@
     package = pkgs.mysql84;
   };
 
-#   # qBittorrent as a systemd service
-# services.qbittorrent-nox = {
-#   enable = true;
-#   user = "yourusername"; # replace with your username
-#   webUi = {
-#     enable = true;
-#     port = 8080;          # default web UI port
-#   };
-# };
+  #   # qBittorrent as a systemd service
+  # services.qbittorrent-nox = {
+  #   enable = true;
+  #   user = "yourusername"; # replace with your username
+  #   webUi = {
+  #     enable = true;
+  #     port = 8080;          # default web UI port
+  #   };
+  # };
 
-services.logind = {
-  lidSwitch = "suspend";
-  lidSwitchExternalPower = "suspend";
-  lidSwitchDocked = "ignore";
-};
+  services.logind = {
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "ignore";
+    lidSwitchDocked = "ignore";
+  };
 
   services.orca.enable = false;
 
@@ -85,12 +74,12 @@ services.logind = {
   users.users.laeeq = {
     isNormalUser = true;
     description = "Laeeq";
-    extraGroups = [ "networkmanager" "wheel" "audio" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
     shell = pkgs.zsh;
   };
 
   # Enable Docker service
-virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   # Firmware
   hardware.enableAllFirmware = true;
@@ -100,6 +89,10 @@ virtualisation.docker.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "laeeq";
 
+  # Display manager (GDM)
+  services.displayManager.gdm.enable = true;
+
+
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
@@ -107,36 +100,14 @@ virtualisation.docker.enable = true;
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
-  # # USB autosuspend (safe to keep)
-  # environment.etc."modprobe.d/usb-autosuspend.conf".text = ''
-  #   options usbcore autosuspend=-1
-  # '';
-
-  # boot.kernelParams = [ "usbcore.autosuspend=-1" ];
-  # boot.kernel.sysctl = {
-  #   "usbcore.autosuspend" = -1;
-  # };
-
-  # services.udev.extraRules = ''
-  #   ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="on"
-  #   ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
-  # '';
-
   # Nix
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
- 
   environment.systemPackages = with pkgs; [
     jdk
   ];
 
   system.stateVersion = "25.05";
 
-
   boot.loader.systemd-boot.configurationLimit = 4;
-
-
-
-
-
 }

@@ -14,8 +14,7 @@
     nautilus
     inputs.zen-browser.packages."${system}".default
     eclipses.eclipse-sdk
-    jetbrains.idea-oss    
-    vscode
+
     jdk
     libreoffice
     zsh
