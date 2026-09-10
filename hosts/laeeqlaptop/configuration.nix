@@ -14,6 +14,9 @@
 
   services.tailscale.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 22 80 53 9000 ];
+networking.firewall.allowedUDPPorts = [ 53 ];
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
