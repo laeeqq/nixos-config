@@ -31,5 +31,7 @@
     code-cursor
     nodejs
     php
+    xournalpp    # For drawing, highlighting, and signing
+    pdfarranger  # For merging, splitting, and rearranging pages
   ];
 }
