@@ -14,6 +14,8 @@
 
   services.tailscale.enable = true;
 
+  services.upower.enable = true;
+
   networking.firewall.allowedTCPPorts = [ 22 80 53 9000 8096 ];
 networking.firewall.allowedUDPPorts = [ 53 ];
 
